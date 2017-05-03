@@ -25,11 +25,11 @@ namespace Snake
 
             //Отрисовка точек
             Point p = new Point(7,10,'@');
-            p.Draw();
+            Snake snake = new Snake(p,4,Direction.DOWN);
+            snake.Draw();
 
             Console.ReadKey();
-        }
-       
+        }      
         
     }
 }
