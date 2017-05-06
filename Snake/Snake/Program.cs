@@ -23,12 +23,15 @@ namespace Snake
             Snake snake = new Snake(p,4,Direction.RIGHT);
             snake.Draw();
 
+            //Отрисовка еды
             FoodCreator foodCreator = new FoodCreator(80, 25, '#');
             Point food = foodCreator.CreateFood();
             food.Draw();
 
+            
             while (true)
             {
+                //Взаимодействие змейки с хвостом и стенками
                 if (walls.IsHit(snake) || snake.IsHitTale())
                 {
                     Console.SetCursorPosition(35,12);
@@ -37,6 +40,7 @@ namespace Snake
                     break;
                 }
 
+                // Взаимодействие змейки с едой
                 if (snake.Eat(food))
                 {
                     food = foodCreator.CreateFood();
@@ -47,6 +51,7 @@ namespace Snake
 
                 Thread.Sleep(100);
 
+                //Управление змейкой
                 if (Console.KeyAvailable)
                 {
                     ConsoleKeyInfo key = Console.ReadKey();
